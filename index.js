@@ -1,6 +1,8 @@
 //link to externals
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateHtml = require('./generateHtml.js');
+const { generateKey } = require('crypto');
 
 
 const menu = [
@@ -70,7 +72,22 @@ const addEmployee = [
     
 ];
 
-//
+//b 
 //const updateEmployee = [
 
 //]
+
+inquirer.prompt(menu)
+ .then((response) => {
+    fs.writeFile('index.html', generateHtml(response), () => {
+    if ( `${response.menu}` === 'Add a Department') {
+        inquirer.prompt(addDept)
+    } else if (`${response.menu}` === 'Add a Role') {
+        inquirer.prompt(addRole)
+    } else if (`${response.menu}` === 'Add an Employee') {
+        inquirer.prompt(addEmployee)
+    } else {
+        return;
+    }
+ })
+});
