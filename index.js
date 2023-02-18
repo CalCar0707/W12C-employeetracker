@@ -4,7 +4,7 @@ const fs = require('fs');
 const generateDepartments = require('./generateHtml.js');
 const { generateKey } = require('crypto');
 
-//const db = require('./server.js');
+const db = require('./server.js');
 
 const menu = [
     {
@@ -82,17 +82,24 @@ const addEmployee = [
 inquirer.prompt(menu)
  .then((response) => {
     fs.writeFile('index.html', generateDepartments(response), () => {
-    if 
-    //(`${response.optionmenu}` === 'View All Departments') {
-        
-    //} else if 
-    (`${response.optionmenu}` === 'Add a Department') {
-        inquirer.prompt(addDept)
-
+    if (`${response.optionmenu}` === 'View All Departments') {
+        db.query('SELECT * FROM departments', function (err, results) {
+            console.log(results);
+          });
+    } else if (`${response.optionmenu}` === 'View All Roles') {
+        db.query('SELECT * FROM roles', function (err, results) {
+            console.log(results);
+          });
+    } else if (`${response.optionmenu}` === 'View All Employees') {
+        db.query('SELECT * FROM roles', function (err, results) {
+            console.log(results);
+          });
+    } else if (`${response.optionmenu}` === 'Add a Department') {
+        inquirer.prompt(addDept);
     } else if (`${response.optionmenu}` === 'Add a Role') {
-        inquirer.prompt(addRole)
+        inquirer.prompt(addRole);
     } else if (`${response.optionmenu}` === 'Add an Employee') {
-        inquirer.prompt(addEmployee)
+        inquirer.prompt(addEmployee);
     } else {
         return;
     }
