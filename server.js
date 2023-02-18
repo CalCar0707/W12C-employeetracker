@@ -52,22 +52,22 @@ const addEmployee = [
     {
         type: 'input',
         name: 'employeefirst',
-        message: 'Please provide employee/s first name:'
+        message: 'Please provide employee\'s first name:'
     },
     {
         type: 'input',
         name: 'empployeelast',
-        message: 'Please provide employee/s last name:'
+        message: 'Please provide employee\'s last name:'
     },
     {
         type: 'input',
         name: 'employeerole',
-        message: 'Please enter employee/s role:'
+        message: 'Please enter employee\'s role:'
     },
     {
         type: 'input',
         name: 'employeemanager',
-        message: 'Please provide employee/s manager:'
+        message: 'Please provide employee\'s manager:'
     }
     
 ];
@@ -82,6 +82,7 @@ inquirer.prompt(menu)
     fs.writeFile('index.html', generateDepartments(response), () => {
     if (`${response.optionmenu}` === 'Add a Department') {
         inquirer.prompt(addDept)
+
     } else if (`${response.optionmenu}` === 'Add a Role') {
         inquirer.prompt(addRole)
     } else if (`${response.optionmenu}` === 'Add an Employee') {
