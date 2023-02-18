@@ -4,4 +4,4 @@ function generateDepartments(response) {
 }
 
 
-module.exports = { generateDepartments };
+module.exports = generateDepartments;
