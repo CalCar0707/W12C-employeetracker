@@ -13,11 +13,12 @@ app.use(express.json());
 const db = mysql.createConnection(
     {
       host: 'localhost',
+      //working with hardcoded data, not process.env
       // MySQL username,
-      user: process.env.DB_USER,
+      user: 'root',
       // MySQL password
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_NAME
+      password: '',
+      database: 'employee_db'
     },
     console.log(`Connected to the courses_db database.`)
   );

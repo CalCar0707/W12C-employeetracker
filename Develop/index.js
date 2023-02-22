@@ -91,7 +91,7 @@ inquirer.prompt(menu)
             console.log(results);
           });
     } else if (`${response.optionmenu}` === 'View All Employees') {
-        db.query('SELECT * FROM roles', function (err, results) {
+        db.query('SELECT * FROM employees', function (err, results) {
             console.log(results);
           });
     } else if (`${response.optionmenu}` === 'Add a Department') {
