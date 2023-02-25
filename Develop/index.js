@@ -77,15 +77,13 @@ const addEmployee = [
 //const updateEmployee = [
 
 //]
-
+ 
 
 inquirer.prompt(menu)
  .then((response) => {
     fs.writeFile('index.html', generateDepartments(response), () => {
     if (`${response.optionmenu}` === 'View All Departments') {
-        db.query('SELECT * FROM departments', function (err, results) {
-            console.log(results);
-          });
+        addDeptToDb();
     } else if (`${response.optionmenu}` === 'View All Roles') {
         db.query('SELECT * FROM roles', function (err, results) {
             console.log(results);
@@ -105,3 +103,17 @@ inquirer.prompt(menu)
     }
  })
 });
+
+function addDeptToDb () {
+    inquirer.prompt(addDept)
+    .then((response) => {
+        console.log(response);
+        db.query('INSERT INTO departments SET ?', {
+            //dept name works, id does not show or auto increment
+            id: 1,
+            department_name: response.deptname
+        })
+
+    },(err) => console.log(err)
+    )
+}
