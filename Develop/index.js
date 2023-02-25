@@ -83,24 +83,25 @@ inquirer.prompt(menu)
  .then((response) => {
     fs.writeFile('index.html', generateDepartments(response), () => {
     if (`${response.optionmenu}` === 'View All Departments') {
-        addDeptToDb();
+        db.query('SELECT * FROM roles', function (err, results) {
+            console.log(results);
+          });
     } else if (`${response.optionmenu}` === 'View All Roles') {
-        addRoleToDb();
-        //db.query('SELECT * FROM roles', function (err, results) {
-          //  console.log(results);
-          //});
+        db.query('SELECT * FROM roles', function (err, results) {
+            console.log(results);
+          });
     } else if (`${response.optionmenu}` === 'View All Employees') {
         db.query('SELECT * FROM employees', function (err, results) {
             console.log(results);
           });
     } else if (`${response.optionmenu}` === 'Add a Department') {
-        inquirer.prompt(addDept);
+        addDeptToDb();
     } else if (`${response.optionmenu}` === 'Add a Role') {
-        inquirer.prompt(addRole);
+        addRoleToDb();
     } else if (`${response.optionmenu}` === 'Add an Employee') {
-        inquirer.prompt(addEmployee);
+        addEmployeeToDb();
     } else {
-        return;
+        return menu;
     }
  })
 });
@@ -129,6 +130,25 @@ function addRoleToDb() {
             title: response.rolename,
             department: response.roledept,
             salary: response.rolesalary
+        })
+    }, (err) => console.log(err)
+     )
+}
+
+
+function addEmployeeToDb() {
+    inquirer.prompt(addEmployee)
+    .then((response) => {
+        console.log(response);
+        db.query('INSERT INTO roles SET ?', {
+            //wokring properly, does not show id
+            id: 1,
+            first_name: response.employeefirst,
+            last_name: response.employeelast,
+            //title:
+            department: response.employeerole,
+            //salary:
+            manager: response.employeemanager,  
         })
     }, (err) => console.log(err)
      )
