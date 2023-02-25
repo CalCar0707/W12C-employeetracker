@@ -83,7 +83,7 @@ inquirer.prompt(menu)
  .then((response) => {
     fs.writeFile('index.html', generateDepartments(response), () => {
     if (`${response.optionmenu}` === 'View All Departments') {
-        db.query('SELECT * FROM roles', function (err, results) {
+        db.query('SELECT * FROM departments', function (err, results) {
             console.log(results);
           });
     } else if (`${response.optionmenu}` === 'View All Roles') {
@@ -109,7 +109,7 @@ inquirer.prompt(menu)
 function addDeptToDb () {
     inquirer.prompt(addDept)
     .then((response) => {
-        console.log(response);
+        //console.log(response);
         db.query('INSERT INTO departments SET ?', {
             //dept name works, id does not show or auto increment
             id: 1,
@@ -123,7 +123,7 @@ function addDeptToDb () {
 function addRoleToDb() {
     inquirer.prompt(addRole)
     .then((response) => {
-        console.log(response);
+       // console.log(response);
         db.query('INSERT INTO roles SET ?', {
             //wokring properly, does not show id
             id: 1,
@@ -139,7 +139,7 @@ function addRoleToDb() {
 function addEmployeeToDb() {
     inquirer.prompt(addEmployee)
     .then((response) => {
-        console.log(response);
+       // console.log(response);
         db.query('INSERT INTO roles SET ?', {
             //wokring properly, does not show id
             id: 1,
