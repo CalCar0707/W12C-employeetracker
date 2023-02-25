@@ -4,4 +4,4 @@ VALUES (001, "customer care"),
        (003, "fraud prevention"),
        (004, "telesales"),
        (005, "business"),
-       (006, "escalations")
+       
