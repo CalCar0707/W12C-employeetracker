@@ -85,9 +85,10 @@ inquirer.prompt(menu)
     if (`${response.optionmenu}` === 'View All Departments') {
         addDeptToDb();
     } else if (`${response.optionmenu}` === 'View All Roles') {
-        db.query('SELECT * FROM roles', function (err, results) {
-            console.log(results);
-          });
+        addRoleToDb();
+        //db.query('SELECT * FROM roles', function (err, results) {
+          //  console.log(results);
+          //});
     } else if (`${response.optionmenu}` === 'View All Employees') {
         db.query('SELECT * FROM employees', function (err, results) {
             console.log(results);
@@ -116,4 +117,19 @@ function addDeptToDb () {
 
     },(err) => console.log(err)
     )
+}
+
+function addRoleToDb() {
+    inquirer.prompt(addRole)
+    .then((response) => {
+        console.log(response);
+        db.query('INSERT INTO roles SET ?', {
+            //wokring properly, does not show id
+            id: 1,
+            title: response.rolename,
+            department: response.roledept,
+            salary: response.rolesalary
+        })
+    }, (err) => console.log(err)
+     )
 }
