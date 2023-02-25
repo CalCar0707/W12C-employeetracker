@@ -73,9 +73,12 @@ const addEmployee = [
     
 ];
 
-//b 
 //const updateEmployee = [
-
+//{
+  //  type: 'checkbox',
+    //name: 'updateemployee',
+    //message: 'Please choose employee to update:'
+//}
 //]
  
 
@@ -100,7 +103,12 @@ inquirer.prompt(menu)
         addRoleToDb();
     } else if (`${response.optionmenu}` === 'Add an Employee') {
         addEmployeeToDb();
-    } else {
+    } 
+    //else if (`${response.optionmenu}` === 'Update an Employee Role') {
+        
+   // }
+    
+    else {
         return menu;
     }
  })
@@ -141,7 +149,7 @@ function addEmployeeToDb() {
     .then((response) => {
        // console.log(response);
         db.query('INSERT INTO roles SET ?', {
-            //wokring properly, does not show id
+            //working properly, does not show id
             id: 1,
             first_name: response.employeefirst,
             last_name: response.employeelast,
@@ -152,4 +160,8 @@ function addEmployeeToDb() {
         })
     }, (err) => console.log(err)
      )
+}
+
+function updateEmployee(){
+
 }
