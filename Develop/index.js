@@ -88,15 +88,15 @@ inquirer.prompt(menu)
     fs.writeFile('index.html', generateDepartments(response), () => {
     if (`${response.optionmenu}` === 'View All Departments') {
         db.query('SELECT * FROM departments', function (err, results) {
-            console.log(results);
+            console.table(results);
           });
     } else if (`${response.optionmenu}` === 'View All Roles') {
         db.query('SELECT * FROM roles', function (err, results) {
-            console.log(results);
+            console.table(results);
           });
     } else if (`${response.optionmenu}` === 'View All Employees') {
         db.query('SELECT * FROM employees', function (err, results) {
-            console.log(results);
+            console.table(results);
           });
     } else if (`${response.optionmenu}` === 'Add a Department') {
         addDeptToDb();
