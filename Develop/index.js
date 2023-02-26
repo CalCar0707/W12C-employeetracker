@@ -109,7 +109,7 @@ inquirer.prompt(menu)
    // }
     
     else {
-        return menu;
+        return inquirer.prompt(menu);
     }
  })
 });
@@ -162,6 +162,6 @@ function addEmployeeToDb() {
      )
 }
 
-function updateEmployee(){
+//function updateEmployee(){
 
-}
+//}
