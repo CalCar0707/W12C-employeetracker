@@ -6,4 +6,4 @@ VALUES (001, "cx care representative", "customer care", 25000),
        (005, "sales specialist", "telesales", 40000),
        (006, "sales supervisor", "telesales", 50000),
        (007, "business representative", "business", 35000),
-       (008, "buusiness supervisor", "business", 50000)
+       (008, "business supervisor", "business", 50000);

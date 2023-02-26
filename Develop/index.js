@@ -1,6 +1,7 @@
 //link to externals
 const inquirer = require('inquirer');
 const fs = require('fs');
+const cTable = require('console.table')
 const generateDepartments = require('./generateHtml.js');
 const { generateKey } = require('crypto');
 
@@ -121,7 +122,7 @@ function addDeptToDb () {
         db.query('INSERT INTO departments SET ?', {
             //dept name works, id does not show or auto increment
             id: 1,
-            department_name: response.deptname
+            department: response.deptname
         })
 
     },(err) => console.log(err)

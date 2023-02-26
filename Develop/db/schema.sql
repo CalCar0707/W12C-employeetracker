@@ -6,20 +6,15 @@ USE employee_db;
 
 CREATE TABLE departments (
     id INT NOT NULL ,
-    department_name VARCHAR(30) NOT NULL,
-    PRIMARY KEY (id)
+    department VARCHAR(30) NOT NULL
 );
 
 
 CREATE TABLE roles (
     id INT NOT NULL ,
     title VARCHAR(30) NOT NULL,
-    department_id INT,
-    salary INT NOT NULL,
-    FOREIGN KEY (department_id)
-    REFERENCES departments(id)
-    ON DELETE SET NULL,
-    
+    department VARCHAR(30) NOT NULL,
+    salary INT NOT NULL
 );
 
 CREATE TABLE employees (
@@ -29,5 +24,5 @@ CREATE TABLE employees (
     title VARCHAR(30) NOT NULL,
     department VARCHAR(30) NOT NULL,
     salary INT NOT NULL,
-    manager VARCHAR(30) NOT NULL,
+    manager TEXT
 );
