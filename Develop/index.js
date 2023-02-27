@@ -58,7 +58,7 @@ const addEmployee = [
     },
     {
         type: 'input',
-        name: 'empployeelast',
+        name: 'employeelast',
         message: 'Please provide employee\'s last name:'
     },
     {
@@ -128,7 +128,7 @@ function addDeptToDb () {
 
     },(err) => console.log(err)
     )
-}
+};
 
 function addRoleToDb() {
     inquirer.prompt(addRole)
@@ -143,7 +143,7 @@ function addRoleToDb() {
         })
     }, (err) => console.log(err)
      )
-}
+};
 
 
 function addEmployeeToDb() {
@@ -162,10 +162,10 @@ function addEmployeeToDb() {
         })
     }, (err) => console.log(err)
      )
-}
+};
 
 //function updateEmployeeInDb(){
-    inquirer.prompt(updateEmployee)
+   // inquirer.prompt(updateEmployee)
     
     
     //};
