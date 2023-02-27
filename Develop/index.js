@@ -64,7 +64,17 @@ const addEmployee = [
     {
         type: 'input',
         name: 'employeerole',
-        message: 'Please enter employee\'s role:'
+        message: 'Please provide employee\'s role:'
+    },
+    {
+        type: 'input',
+        name: 'employeedept',
+        message: 'Please enter employee\'s department:'
+    },
+    {
+        type: 'input',
+        name: 'employeesal',
+        message: 'Please provide employee\'s salary'
     },
     {
         type: 'input',
@@ -150,15 +160,15 @@ function addEmployeeToDb() {
     inquirer.prompt(addEmployee)
     .then((response) => {
        // console.log(response);
-        db.query('INSERT INTO roles SET ?', {
+        db.query('INSERT INTO employees SET ?', {
             //working properly, does not show id
             id: 1,
             first_name: response.employeefirst,
             last_name: response.employeelast,
-            //title:
-            department: response.employeerole,
-            //salary:
-            manager: response.employeemanager,  
+            title: response.employeerole,
+            department: response.employeedept,
+            salary: response.employeesal,
+            manager: response.employeemanager 
         })
     }, (err) => console.log(err)
      )

@@ -6,4 +6,4 @@ VALUES (001, "Bob", "Jones", "cx care representative", "customer care", 25000, "
        (005, "John", "Doe", "cx care supervisor", "customer care", 50000, null),
        (006, "Mike", "Chan", "fraud prevention supervisor", "fraud prevention", 50000, null),
        (007, "Tom", "Allen", "sales supervisor", "telesales", 50000, null),
-       (008, "Chris", 'Brown', "business supervisor", "business", 50000, null);
+       (008, "Chris", "Brown", "business supervisor", "business", 50000, null);
