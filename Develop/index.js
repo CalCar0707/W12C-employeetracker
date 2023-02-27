@@ -105,11 +105,9 @@ inquirer.prompt(menu)
     } else if (`${response.optionmenu}` === 'Add an Employee') {
         addEmployeeToDb();
     } 
-    //else if (`${response.optionmenu}` === 'Update an Employee Role') {
-        
-   // }
-    
-    else {
+    else if (`${response.optionmenu}` === 'Update an Employee Role') {
+        updateEmployee();
+    } else {
         return inquirer.prompt(menu);
     }
  })
@@ -163,6 +161,10 @@ function addEmployeeToDb() {
      )
 }
 
-//function updateEmployee(){
-
-//}
+function updateEmployee(){
+    inquirer.prompt(db.query('SELECT * FROM employees', function (err, results) {
+        console.table(results);
+    
+    })
+    )
+    };
