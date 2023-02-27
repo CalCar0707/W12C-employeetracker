@@ -23,3 +23,4 @@ First, the user will want to go to the command  line and use 'npm install' to ma
 
 ## Walkthrough Video
 
+https://drive.google.com/file/d/1zbfiSxn5-ZUZKqN8Arf7ep5Pdz1B46Ne/view
