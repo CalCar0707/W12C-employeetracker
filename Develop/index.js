@@ -74,7 +74,7 @@ const addEmployee = [
     {
         type: 'input',
         name: 'employeesal',
-        message: 'Please provide employee\'s salary'
+        message: 'Please provide employee\'s salary:'
     },
     {
         type: 'input',

@@ -4,14 +4,6 @@
 
 The motivation behind this command line app is to assist business owners with managing the departments, roles, and employees in their company. With an easy to use menu and a few quick commands, the user will be able to view existing departments, roles, and employees as well as add  new departments, roles, and employees to the database.
 
-## Table of Contents (Optional)
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
 
 ## Installation
 
