@@ -78,7 +78,9 @@ const addEmployee = [
 //{
   //  type: 'checkbox',
     //name: 'updateemployee',
-    //message: 'Please choose employee to update:'
+    //message: 'Please choose employee to update: ',
+    //choices: [
+      //  console.table('SELECT * FROM employees')]
 //}
 //]
  
@@ -105,9 +107,10 @@ inquirer.prompt(menu)
     } else if (`${response.optionmenu}` === 'Add an Employee') {
         addEmployeeToDb();
     } 
-    else if (`${response.optionmenu}` === 'Update an Employee Role') {
-        updateEmployee();
-    } else {
+   // else if (`${response.optionmenu}` === 'Update an Employee Role') {
+     //   updateEmployeeInDb();
+    //} 
+    else {
         return inquirer.prompt(menu);
     }
  })
@@ -161,10 +164,8 @@ function addEmployeeToDb() {
      )
 }
 
-function updateEmployee(){
-    inquirer.prompt(db.query('SELECT * FROM employees', function (err, results) {
-        console.table(results);
+//function updateEmployeeInDb(){
+    inquirer.prompt(updateEmployee)
     
-    })
-    )
-    };
+    
+    //};
